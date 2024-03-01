@@ -1,0 +1,26 @@
+{% extends 'aplicacion/home.html' %}
+
+{% block contenido %} 
+    <h1 class="display-5 fw-bolder text-white mb-2"> SUCURSALES </h1>     
+{% endblock contenido %}
+
+{% block contenido2 %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ciudad</th>
+                <th>Direccion</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for c in sucursales %}
+           <tr>
+               <th>{{ c.id }}</th>
+               <th>{{ c.ciudad }}</th>
+               <th>{{ c.direccion }}</th>
+           </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+{% endblock contenido2 %}

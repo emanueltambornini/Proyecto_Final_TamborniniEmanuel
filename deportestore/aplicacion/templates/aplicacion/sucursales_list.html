@@ -1,0 +1,54 @@
+{% extends 'aplicacion/home.html' %}
+
+{% block contenido %} 
+    <h1 class="display-5 fw-bolder text-white mb-2"> SUCURSALES </h1>     
+{% endblock contenido %}
+
+{% block contenido2 %}
+     <table>
+        <tr>
+           <td width="200"><h2>SUCURSALES</h2></td>
+           <td>
+             <a
+             href="{% url 'sucursales_form' %}"
+             class="btn btn-primary btn-sm"
+             ><i class="fa fa-plus fa-lg" title="Crear"> </i>
+             </a>
+           </td>
+        </tr>
+   </table>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ciudad</th>
+                <th>Direccion</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for c in sucursales_list %}
+           <tr>
+               <th>{{ c.id }}</th>
+               <th>{{ c.ciudad }}</th>
+               <th>{{ c.direccion }}</th>
+               <th>
+                <a
+                  href="{% url 'sucursales_actualizar' c.id %}"
+                  class="btn btn-primary"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                </a>
+                <a
+                  href="{% url 'sucursales_borrar' c.id %}"
+                  class="btn btn-danger"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                </a>                
+              </th>
+           </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+{% endblock contenido2 %}

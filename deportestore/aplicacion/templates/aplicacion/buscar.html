@@ -1,0 +1,14 @@
+{% extends 'aplicacion/home.html' %}
+
+{% block contenido %} 
+    <h1 class="display-5 fw-bolder text-white mb-2"> BUSCAR PRODUCTOS </h1>     
+{% endblock contenido %}
+
+{% block contenido2 %}
+<form action="{% url 'buscarproductos' %}" method="get">
+    {% csrf_token %}
+
+    <p>Patron a buscar: <input type="text" name="buscar" id="buscar"></p>      
+    <input type="submit" value="Buscar">
+</form>           
+{% endblock contenido2 %}

@@ -1,0 +1,18 @@
+{% extends 'aplicacion/home.html' %}
+
+{% block contenido %}
+    <h1 class="display-5 fw-bolder text-white mb-2">Editar Perfil</h1>
+{% endblock contenido %}
+    
+
+{% block contenido2 %}
+<form action="" method="post">
+    {% csrf_token %}
+
+    <table>
+        {{ form.as_table }}
+    </table>
+    
+    <input type="submit" value="Actualizar Perfil">
+</form>
+{% endblock contenido2 %}

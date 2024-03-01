@@ -1,0 +1,24 @@
+{% extends 'aplicacion/home.html' %}
+
+{% block contenido %} 
+    <h1 class="display-5 fw-bolder text-white mb-2"> MEDIOS DE PAGOS </h1>     
+{% endblock contenido %}
+
+{% block contenido2 %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Medios_pago</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for c in medios_pago %}
+           <tr>
+               <th>{{ c.id }}</th>
+               <th>{{ c.nombre }}</th>
+           </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+{% endblock contenido2 %}
